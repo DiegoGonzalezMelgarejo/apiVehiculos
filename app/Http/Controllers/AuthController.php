@@ -76,8 +76,7 @@ class AuthController extends Controller
         } catch (JWTException $e) {
             return response()->json(['error' => 'could_not_create_token'], 500);
         }
-        $user=$this.getAuthenticatedUser();
-        return response()->json(compact('token','user'));
+        return response()->json(compact('token'));
     }
     public function getAuthenticatedUser()
     {

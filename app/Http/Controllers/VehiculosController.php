@@ -179,7 +179,7 @@ class VehiculosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return Vehiculo::destroy($id);
     }
 /**
      * Find by Placa

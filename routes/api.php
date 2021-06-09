@@ -20,16 +20,24 @@ Route::post('login', 'AuthController@authenticate');
 //Route::post('vehiculos','VehiculosController@store');
 
     //Rutas a las que se permitirá acceso
-Route::get('users', 'AuthController@index');
 //Route::get('vehiculos', 'VehiculosController@index');
 //Route::get('vehiculo/id', 'VehiculosController@show');
-Route::resource('vehiculos', VehiculosController::class);
     //Rutas protegidas
+    Route::group(['middleware' => ['cors']], function() {
+
+Route::get('users', 'AuthController@index');
+    
+        //Route::post('vehiculos/update','VehiculosController@update');
+      //  Route::post('vehiculos/destroy','VehiculosController@destroy');
+    
+    });
+Route::resource('vehiculos2', VehiculosController::class);
 
 Route::group(['middleware' => ['jwt.verify']], function() {
 
     Route::post('user','AuthController@getAuthenticatedUser');
     //Route::post('vehiculos/update','VehiculosController@update');
   //  Route::post('vehiculos/destroy','VehiculosController@destroy');
+  Route::resource('vehiculos', VehiculosController::class);
 
 });
