@@ -18,6 +18,7 @@ class CreateVehiculosTable extends Migration
             $table->string('placa')->nullable(false);
             $table->string('kilometraje')->nullable(false);
             $table->dateTime('fecha')->nullable(false);
+            $table->string('Conductor')->nullable(false);
             #Documentos
             $table->tinyInteger('licencia')->nullable()->default(0);
             $table->longText('observacionesLicencia')->nullable();
@@ -47,6 +48,11 @@ class CreateVehiculosTable extends Migration
             #parabrisa
             $table->tinyInteger('parabrisas')->nullable()->default(0);
             $table->longText('observacionesParabrisas')->nullable();
+            #frenos
+            $table->tinyInteger('frenosPrincipal')->nullable()->default(0);
+            $table->longText('observacionesFrenosPrincipal')->nullable();
+            $table->tinyInteger('frenosEmergencia')->nullable()->default(0);
+            $table->longText('observacionesFrenosEmergencia')->nullable();
             #llantas
             $table->tinyInteger('llantasDelateras')->nullable()->default(0);
             $table->longText('observacionesLlantasDelanteras')->nullable();
@@ -106,7 +112,8 @@ class CreateVehiculosTable extends Migration
             #Equipo de seguridad
 
             #extintor
-            $table->tinyInteger('fechaVencimientoExtintor')->nullable()->default(0);
+            $table->longText('fechaVencimientoExtintor')->nullable();
+            $table->tinyInteger('extintor')->nullable()->default(0);
             $table->string("capacidadExtintor",40)->nullable()->nullable();
             $table->longText('observacionesExtintor')->nullable();
 
@@ -136,12 +143,17 @@ class CreateVehiculosTable extends Migration
             $table->longText('observacionesBotiquin')->nullable();
             $table->longText('observacionesGenerales')->nullable();
 
+            #nuevo
+            #CaracteristicasPrincipales
+            $table->string('NombreCompleto')->nullable(false);
+            $table->string('Cedula')->nullable(false);
+            $table->longText('Objetivo')->nullable();
+            $table->string('Destino')->nullable(false);
+            $table->dateTime('FechaDelServicio')->nullable(false);
+            $table->string('NombreJefe')->nullable(false);
 
 
-
-
-
-
+         
 
 
 
