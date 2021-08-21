@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-
+use App\Http\Controllers\EntradaController;
+use App\Http\Controllers\SalidasController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -39,5 +40,7 @@ Route::group(['middleware' => ['jwt.verify']], function() {
     //Route::post('vehiculos/update','VehiculosController@update');
   //  Route::post('vehiculos/destroy','VehiculosController@destroy');
   Route::resource('vehiculos', VehiculosController::class);
+  Route::resource('entradas', EntradaController::class);
+  Route::resource('salidas', SalidasController::class);
 
 });
